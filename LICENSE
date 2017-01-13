@@ -1,0 +1,142 @@
+
+Administrator@jiangyichi MINGW32 /d/test
+$ git config --global user.name "jyc"
+
+Administrator@jiangyichi MINGW32 /d/test
+$ git config --global user.email "jiangyichi@ruanko.com"
+
+Administrator@jiangyichi MINGW32 /d/test
+$ madir learngit
+bash: madir: command not found
+
+Administrator@jiangyichi MINGW32 /d/test
+$ cd learngit
+
+Administrator@jiangyichi MINGW32 /d/test/learngit
+$ pwd
+/d/test/learngit
+
+Administrator@jiangyichi MINGW32 /d/test/learngit
+$ git init
+Initialized empty Git repository in D:/test/learngit/.git/
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git add readme.txt
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git commit -m "wrote a readme file"
+[master (root-commit) f3c3d88] wrote a readme file
+ 1 file changed, 2 insertions(+)
+ create mode 100644 readme.txt
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git diff readme.txt
+diff --git a/readme.txt b/readme.txt
+index ccd90e1..6e31bba 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,2 +1,2 @@
+-git is a version control system.
++git is a distributed version control system.
+ git is free software.
+\ No newline at end of file
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git add readme.txt
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   readme.txt
+
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git commit -m "add distributed"
+[master 6f012fa] add distributed
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git add readme.txt
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git commit -m "append GPL"
+[master 6edef51] append GPL
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git log
+commit 6edef515ff8967c789d8d6cbb8573ac4a59ad8c8
+Author: jyc <jiangyichi@ruanko.com>
+Date:   Fri Jan 13 15:32:04 2017 +0800
+
+    append GPL
+
+commit 6f012fa8db2011bee63b0b15d5542cd10db914a2
+Author: jyc <jiangyichi@ruanko.com>
+Date:   Fri Jan 13 15:30:17 2017 +0800
+
+    add distributed
+
+commit f3c3d885287bd3b86e811e752e4f643cc3c39c46
+Author: jyc <jiangyichi@ruanko.com>
+Date:   Fri Jan 13 15:21:54 2017 +0800
+
+    wrote a readme file
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git log --pretty=oneline
+6edef515ff8967c789d8d6cbb8573ac4a59ad8c8 append GPL
+6f012fa8db2011bee63b0b15d5542cd10db914a2 add distributed
+f3c3d885287bd3b86e811e752e4f643cc3c39c46 wrote a readme file
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git reset --hard HEAD^
+HEAD is now at 6f012fa add distributed
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ cat readme.txt
+git is a distributed version control system.
+git is free software.
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git log
+commit 6f012fa8db2011bee63b0b15d5542cd10db914a2
+Author: jyc <jiangyichi@ruanko.com>
+Date:   Fri Jan 13 15:30:17 2017 +0800
+
+    add distributed
+
+commit f3c3d885287bd3b86e811e752e4f643cc3c39c46
+Author: jyc <jiangyichi@ruanko.com>
+Date:   Fri Jan 13 15:21:54 2017 +0800
+
+    wrote a readme file
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ git reset --hard 6edef515
+HEAD is now at 6edef51 append GPL
+
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$ cat readme.txt
+git is a distributed version control system.
+git is free software distributed under the GPL.
+Administrator@jiangyichi MINGW32 /d/test/learngit (master)
+$
